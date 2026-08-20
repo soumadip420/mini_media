@@ -1,0 +1,60 @@
+{% load static %}
+<nav class="navbar">
+  <!-- Logo -->
+  <div class="navbar-logo">
+    <span class="logo-mark"><img src="{% static 'images/logo.png' %}" alt="PIXI logo"></span>
+    <span>PIXI</span>
+  </div>
+
+  <!-- Hamburger for mobile -->
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Nav links -->
+  <ul class="navbar-links" id="navLinks">
+    <li class="nav-item">
+      <a href="{% url 'dashboard'%}" class="nav-icon-btn">
+        <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+        <span class="btn-label">Home</span>
+      </a>
+      <span class="nav-tooltip">Home</span>
+    </li>
+
+    <li class="nav-item">
+      <a href="{% url 'create_post' %}" class="nav-icon-btn create-btn" aria-label="Create post">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="btn-label">Create</span>
+      </a>
+      <span class="nav-tooltip">Create</span>
+    </li>
+
+    <li class="nav-item">
+      <button class="nav-icon-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 20v-6M12 14 21 9l-9-5-9 5 9 5Z"/><path d="M3 9v6c0 1.5 4 3 9 3s9-1.5 9-3V9"/></svg>
+        <span class="btn-label">Notifications</span>
+      </button>
+      <span class="nav-tooltip">Notifications</span>
+    </li>
+  </ul>
+
+  <!-- Right side -->
+  <div class="navbar-right">
+    <a href="{% url 'LogoutUser' %}" class="logout-btn">
+      <svg viewBox="0 0 24 24">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+        <path d="M16 17l5-5-5-5"/>
+        <path d="M21 12H9"/>
+      </svg>
+      <span class="btn-text">Logout</span>
+    </a>
+    <a href="{% url 'UserProfile' %}" class="profile-pic" title="Your Profile"{% if request.user.profile.profile_image %} style="background-image: url('{{ request.user.profile.profile_image.url }}'); background-size: cover; background-position: center;"{% endif %}>
+      {% if request.user.profile.profile_image %}
+      {% else %}
+        {{ request.user.username|slice:":2"|upper }}
+      {% endif %}
+    </a>
+  </div>
+</nav>

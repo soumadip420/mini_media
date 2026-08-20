@@ -1,0 +1,64 @@
+{% extends 'mini_media/main.html'%}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/create_post.css' %}">
+
+<body>
+
+<!-- UPLOAD FORM -->
+<main class="page-wrap">
+{% if post %}
+  <h1 class="page-title">Update your Post</h1>
+  <p class="page-subtitle">Edit your post</p>
+{% else %}
+  <h1 class="page-title">Create New Post</h1>
+  <p class="page-subtitle">Share a photo with your followers.</p>
+{% endif %}
+
+  <form class="form-card" id="postForm" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label class="field-label">Photo</label>
+    <div class="dropzone" id="dropzone">
+      <input type="file" id="fileInput" name="image" accept="image/*"{% if not post %} required {% endif %}>
+      <button type="button" class="remove-img-btn" id="removeImgBtn" aria-label="Remove image">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+      {% if post and post.image%}
+        <img class="preview-img"
+        id="previewImg"
+        src="{{post.image.url}}"
+        alt="Preview">
+      {%else%}
+        <img class="preview-img"
+        id="previewImg"
+        alt="Preview">
+      {%endif%}
+      <div class="dropzone-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+      </div>
+      <p class="dropzone-text">Drag & drop an image here</p>
+      <p class="dropzone-hint"><span>Browse</span> from your device · PNG, JPG up to 10MB</p>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="descriptionInput">Description</label>
+      <textarea class="description-input" id="descriptionInput" name="description" maxlength="200" placeholder="Write a caption for your post...">{{post.description|default:''}}</textarea>
+      <div class="char-count"><span id="charCount">0</span>/200</div>
+    </div>
+    {% if post %}
+    <button type="submit" class="upload-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+      Update Post
+    </button>
+    {%else%}
+    <button type="submit" class="upload-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+      Upload Post
+    </button>
+    {% endif %}
+  </form>
+</main>
+
+<script src="{% static 'js/create_post.js' %}"></script>
+
+{% endblock %}

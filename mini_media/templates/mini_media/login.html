@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="{% static 'css/form.css'%}">
+<link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+</head>
+<body>
+
+<div class="login-container">
+  <div class="navbar-logo" style="margin-left: 55px;">
+    <span class="logo-mark" style="margin-left: 55px;"><img src="{% static 'images/logo.png' %}" alt="PIXI logo"></span>
+    <span>PIXI</span>
+  </div>
+
+  <h1>Welcome back</h1>
+  <p class="login-subtitle">Log in to continue to your account</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <div class="field-group">
+      <label for="username">Username</label>
+      <div class="input-wrap">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <input type="text" id="username" name="username" placeholder="Enter your username" autocomplete="username" required>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="password">Password</label>
+      <div class="input-wrap">
+        <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required style="padding-right: 42px;">
+        <button type="button" class="toggle-pass" id="togglePass" aria-label="Show password">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+    </div> 
+        <button type="submit" class="login-btn">
+            Log In
+        </button>
+    <div class="links-row">
+      <span class="register-line">Don't have an account? <a href="{% url 'RegisterPage' %}">Register</a></span>
+    </div>
+    <div class="links-row">
+      <a href="#">Forgot password?</a>
+    </div>
+  </form>
+</div>
+
+<script>
+  const togglePass = document.getElementById('togglePass');
+  const passwordInput = document.getElementById('password');
+
+  togglePass.addEventListener('click', () => {
+    const isHidden = passwordInput.type === 'password';
+    passwordInput.type = isHidden ? 'text' : 'password';
+  });
+</script>
+
+</body>
+</html>
