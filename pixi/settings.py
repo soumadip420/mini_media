@@ -188,14 +188,11 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # --------------------------------------------------
 
 STORAGES = {
-    # User-uploaded files → Cloudinary
-    'default': {
-        'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
-
-    # CSS / JS / static images → WhiteNoise
-    'staticfiles': {
-        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 

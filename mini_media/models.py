@@ -35,7 +35,7 @@ class PostLike(models.Model):
             )
         ]
     def __str__(self):
-        return f"{self.user.username}-liked post{self.post.id}"
+        return f"{self.user.username}-liked post{self.posts.id}"
     
 class Comment(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
@@ -43,7 +43,7 @@ class Comment(models.Model):
     text=models.CharField(max_length=200)
     created_at=models.DateTimeField(auto_now_add=True)
     def __str__(self):
-            return f"{self.user.username}-{self.post.id}"
+            return f"{self.user.username}-{self.posts.id}"
 
 class SavedPost(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
@@ -57,6 +57,6 @@ class SavedPost(models.Model):
             )
         ]
     def __str__(self):
-        return f"{self.user.username}-saved post{self.post.id}"
+        return f"{self.user.username}-saved post{self.posts.id}"
 
 
