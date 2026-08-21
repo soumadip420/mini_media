@@ -1,0 +1,479 @@
+:root {
+    --bg: #0d1015;
+    --bg-card: #1a1f28;
+    --bg-soft: #1c212b;
+    --ink-white: #f4f6f8;
+    --ink-dim: #8b93a1;
+    --accent: #5ee6c5;
+    --accent-soft: rgba(94, 230, 197, 0.14);
+    --blue: #6c9bff;
+    --blue-soft: rgba(108, 155, 255, 0.14);
+    --gold: #ffb057;
+    --gold-soft: rgba(255, 176, 87, 0.14);
+    --border: #2a303c;
+    --danger: #ff6b6b;
+    --danger-soft: rgba(255, 107, 107, 0.12);
+    --shadow: rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink-white);
+  }
+
+  .page-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  /* ---------- PROFILE HEADER ---------- */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px;
+    margin-bottom: 26px;
+    box-shadow: 0 10px 28px var(--shadow);
+  }
+
+  .profile-avatar {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+    background: linear-gradient(135deg, #7c8bff, #b06eff);
+    border: 3px solid var(--accent);
+  }
+
+  .profile-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .profile-username {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+
+  .profile-bio {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+    margin: 0 0 16px;
+  }
+
+  .edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 9px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.15s ease;
+  }
+
+  .edit-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .edit-btn:hover { background: var(--accent-soft); transform: translateY(-1px); }
+
+  /* ---------- STATS ---------- */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+
+  .stat-card .stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+  }
+
+  .stat-card .stat-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+  .stat-icon.posts { background: var(--accent-soft); color: var(--accent); }
+  /*
+  .stat-icon.battles { background: var(--gold-soft); color: var(--gold); }
+  .stat-icon.exp { background: var(--blue-soft); color: var(--blue); }
+  */
+
+  .stat-value {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- SECTION HEADING ---------- */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .section-heading h2 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  /* ---------- POSTS GRID (same pattern as all-posts.html) ---------- */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+
+  .post-card {
+    width: 100%;
+    min-width: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .post-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .post-thumb-box {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--bg-soft);
+  }
+
+  .post-thumb-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .post-body {
+    padding: 14px 16px 16px;
+  }
+
+  .post-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .post-meta {
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin: 0 0 14px;
+  }
+
+  .post-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--ink-dim);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+
+  .action-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  .action-btn.view:hover { color: var(--blue); border-color: var(--blue); background: var(--blue-soft); }
+  .action-btn.update:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+  .action-btn.delete:hover { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
+
+  /* ---------- EDIT PROFILE MODAL ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 440px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 26px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 22px;
+  text-align: center;
+}
+
+/* Django's {{ form.as_p }} wraps each field in <p> */
+.modal-card form p {
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-card form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-white);
+  margin-bottom: 8px;
+}
+
+.modal-card form input[type="text"],
+.modal-card form input[type="email"],
+.modal-card form textarea,
+.modal-card form select {
+  width: 100%;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--ink-white);
+  font-family: inherit;
+  font-size: 14px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.modal-card form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.modal-card form input::placeholder,
+.modal-card form textarea::placeholder {
+  color: var(--ink-dim);
+}
+
+.modal-card form input:focus,
+.modal-card form textarea:focus,
+.modal-card form select:focus {
+  border-color: var(--accent);
+  background: var(--bg);
+}
+
+/* File input (choose profile picture) */
+.modal-card form input[type="file"] {
+  width: 100%;
+  background: var(--bg-soft);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--ink-dim);
+  font-size: 13px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.modal-card form input[type="file"]::file-selector-button {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Django validation errors + help text */
+.modal-card form ul.errorlist {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.modal-card form ul.errorlist li {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+}
+
+.modal-card form .helptext {
+  color: var(--ink-dim);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* Action buttons */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.modal-actions .save-btn {
+  flex: 1;
+  background: linear-gradient(135deg, var(--accent), #3aa88f);
+  color: #0d1015;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.modal-actions .save-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.modal-actions .maybe-later-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink-dim);
+  border-radius: 10px;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.modal-actions .maybe-later-btn:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+/* Post image viewer */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.image-modal.show {
+  display: flex;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.profile-avatar {
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .modal-card { padding: 22px 18px; border-radius: 14px; }
+  .modal-actions { flex-direction: column; }
+}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .posts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 640px) {
+    .profile-header {
+      flex-direction: column;
+      text-align: center;
+      padding: 24px 20px;
+    }
+    .profile-bio { margin-bottom: 14px; }
+    .stats-row { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stat-card { padding: 14px 8px; }
+    .stat-value { font-size: 19px; }
+    .stat-label { font-size: 10px; }
+  }
+
+  @media (max-width: 560px) {
+    .posts-grid { grid-template-columns: 1fr; }
+    .page-wrap { padding: 20px 16px 40px; }
+  }
