@@ -3,6 +3,9 @@ from django.contrib.auth import logout,authenticate,login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.db.models import Count, Q
+from django.utils import timezone
+from datetime import timedelta
 from .models import *
 from .form import *
 from .decorators import *
@@ -48,6 +51,45 @@ def UserPage(request):
         'mini_media/user_home.html',
         context
     )
+@login_required
+def AdminDashboard(request):
+    if not request.user.is_staff:
+        return redirect('UserPage')
+
+    return render(request, 'mini_media/dashboard.html')
+@login_required
+def TrendingPage(request):
+    period=request.GET.get('period','all')
+    now=timezone.now()
+    if period=='today':
+        start_date=now.replace(
+            hour=0,
+            minute=0,
+            second=0,
+            microsecond=0
+        )
+    elif period=='week':
+        start_date=now-timedelta(days=7)
+    elif period=='month':
+        start_date=now-timedelta(days=30)
+    else:
+        start_date=None
+    if start_date:
+        trending_posts=post.objects.annotate(
+            like_count=Count('likes',
+                             filter=Q(likes__created_at__gte=start_date))
+        ).filter(
+            like_count__gt=0
+        ).order_by('-like_count')
+    else:
+        trending_posts=post.objects.annotate(
+            like_count=Count('likes')
+        ).filter(like_count__gt=0).order_by('-like_count')
+    context={'trending_posts':trending_posts,
+             'period':period,}
+
+    return render(request,'mini_media/trending.html',context)
+
 @login_required
 def Like_Post(request, post_id):
 
