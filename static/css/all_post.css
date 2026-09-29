@@ -22,7 +22,7 @@
     color: var(--ink-white);
   }
 
-  /* ---------- PAGE LAYOUT ---------- */
+  
   .page-wrap {
     max-width: 1200px;
     margin: 0 auto;
@@ -41,7 +41,7 @@
     margin: 0 0 26px;
   }
 
-  /* ---------- POSTS GRID ---------- */
+  
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -64,8 +64,7 @@
     transform: translateY(-2px);
   }
 
-  /* Fixed-size box, image always fills it completely
-     regardless of the image's own width/height */
+  
   .post-thumb-box {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -127,7 +126,7 @@
   .action-btn.update:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
   .action-btn.delete:hover { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
 
-  /* ---------- RESPONSIVE ---------- */
+  
   @media (max-width: 900px) {
     .posts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }

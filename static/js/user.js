@@ -1,6 +1,3 @@
-// ============================================================
-// THREE-DOT MENU
-// ============================================================
 
 function toggleMenu(btn) {
 
@@ -9,20 +6,13 @@ function toggleMenu(btn) {
     if (!dropdown) return;
 
     const isOpen = dropdown.classList.contains('open');
-
-    // Close all menus
     document.querySelectorAll('.menu-dropdown.open').forEach(menu => {
         menu.classList.remove('open');
     });
-
-    // Open selected menu
     if (!isOpen) {
         dropdown.classList.add('open');
     }
 }
-
-
-// Close menu when clicking outside
 document.addEventListener('click', function (e) {
 
     if (!e.target.closest('.menu-wrap')) {
@@ -34,11 +24,6 @@ document.addEventListener('click', function (e) {
     }
 
 });
-
-
-// ============================================================
-// LIKE BUTTON
-// ============================================================
 
 document.querySelectorAll('.like-form').forEach(form => {
 
@@ -62,8 +47,6 @@ document.querySelectorAll('.like-form').forEach(form => {
         }
 
         const csrfToken = csrfInput.value;
-
-        // Prevent double clicks
         if (button.dataset.loading === 'true') {
             return;
         }
@@ -88,8 +71,6 @@ document.querySelectorAll('.like-form').forEach(form => {
                     'Server returned ' + response.status + ': ' + text
                 );
             }
-
-            // Try to convert response into JSON
             try {
                 return JSON.parse(text);
             } catch (error) {
@@ -110,10 +91,6 @@ document.querySelectorAll('.like-form').forEach(form => {
 
             if (!wrapper) return;
 
-            // -------------------------
-            // Update heart
-            // -------------------------
-
             if (data.liked === true) {
 
                 button.classList.add('liked');
@@ -123,11 +100,6 @@ document.querySelectorAll('.like-form').forEach(form => {
                 button.classList.remove('liked');
 
             }
-
-
-            // -------------------------
-            // Update like count
-            // -------------------------
 
             const likesCount = wrapper.querySelector(
                 '.likes-count'
@@ -158,11 +130,6 @@ document.querySelectorAll('.like-form').forEach(form => {
 
 });
 
-
-// ============================================================
-// SAVE BUTTON
-// ============================================================
-
 document.querySelectorAll('.save-form').forEach(form => {
 
     const button = form.querySelector('.save-btn');
@@ -183,8 +150,6 @@ document.querySelectorAll('.save-form').forEach(form => {
         }
 
         const csrfToken = csrfInput.value;
-
-        // Prevent double clicks
         if (button.dataset.loading === 'true') {
             return;
         }
@@ -225,15 +190,11 @@ document.querySelectorAll('.save-form').forEach(form => {
         .then(data => {
 
             console.log('Save response:', data);
-
-            // Saved
             if (data.saved === true) {
 
                 button.classList.add('saved');
 
             }
-
-            // Unsaved
             else if (data.saved === false) {
 
                 button.classList.remove('saved');
@@ -258,11 +219,6 @@ document.querySelectorAll('.save-form').forEach(form => {
 
 });
 
-
-// ============================================================
-// COMMENT PANEL
-// ============================================================
-
 window.toggleComments = function (postId) {
 
     const panel = document.getElementById(
@@ -286,11 +242,6 @@ window.toggleComments = function (postId) {
 
     const isOpen = panel.classList.contains('open');
 
-
-    // --------------------------------------------------------
-    // Close all other comment panels
-    // --------------------------------------------------------
-
     document.querySelectorAll('.comment-panel.open').forEach(
         openPanel => {
 
@@ -312,9 +263,6 @@ window.toggleComments = function (postId) {
         }
     );
 
-
-    // Remove comments-open from all posts
-
     document.querySelectorAll(
         '.post-wrapper.comments-open'
     ).forEach(openWrapper => {
@@ -322,11 +270,6 @@ window.toggleComments = function (postId) {
         openWrapper.classList.remove('comments-open');
 
     });
-
-
-    // --------------------------------------------------------
-    // Open selected comment panel
-    // --------------------------------------------------------
 
     if (!isOpen) {
 
@@ -347,9 +290,6 @@ window.toggleComments = function (postId) {
             );
 
         }
-
-
-        // Keep the selected post visible
         setTimeout(() => {
 
             wrapper.scrollIntoView({
@@ -362,11 +302,6 @@ window.toggleComments = function (postId) {
     }
 
 };
-
-
-// ============================================================
-// COMMENT FORM
-// ============================================================
 
 document.querySelectorAll('.comment-form-panel').forEach(
     form => {
@@ -409,9 +344,6 @@ document.querySelectorAll('.comment-form-panel').forEach(
 
 
             const csrfToken = csrfInput.value;
-
-
-            // Prevent multiple submissions
 
             if (button.dataset.loading === 'true') {
 
@@ -459,9 +391,6 @@ document.querySelectorAll('.comment-form-panel').forEach(
 
                 }
 
-
-                // Try JSON
-
                 try {
 
                     return JSON.parse(text);
@@ -488,17 +417,7 @@ document.querySelectorAll('.comment-form-panel').forEach(
                     data
                 );
 
-
-                // ------------------------------------------------
-                // Clear input
-                // ------------------------------------------------
-
                 input.value = '';
-
-
-                // ------------------------------------------------
-                // Find comment panel
-                // ------------------------------------------------
 
                 const panel =
                     form.closest('.comment-panel');
@@ -525,11 +444,6 @@ document.querySelectorAll('.comment-form-panel').forEach(
 
                 }
 
-
-                // ------------------------------------------------
-                // Remove "No comments yet"
-                // ------------------------------------------------
-
                 const noComments =
                     commentList.querySelector(
                         '.no-comments'
@@ -541,11 +455,6 @@ document.querySelectorAll('.comment-form-panel').forEach(
                     noComments.remove();
 
                 }
-
-
-                // ------------------------------------------------
-                // Add new comment
-                // ------------------------------------------------
 
                 if (data.comment) {
 
@@ -615,12 +524,6 @@ document.querySelectorAll('.comment-form-panel').forEach(
 
     });
 
-
-// ============================================================
-// ESCAPE HTML
-// Prevent users from injecting HTML/JS in comments
-// ============================================================
-
 function escapeHtml(text) {
 
     const div =
@@ -631,11 +534,6 @@ function escapeHtml(text) {
     return div.innerHTML;
 
 }
-
-
-// ============================================================
-// DOWNLOAD IMAGE
-// ============================================================
 
 function downloadImage(url, filename) {
 
@@ -700,11 +598,6 @@ function downloadImage(url, filename) {
 
 }
 
-
-// ============================================================
-// SHARE BUTTON
-// ============================================================
-
 document.querySelectorAll('.share-btn').forEach(
     button => {
 
@@ -729,9 +622,6 @@ document.querySelectorAll('.share-btn').forEach(
                 '/post/' +
                 postId +
                 '/';
-
-
-            // Modern browser share
             if (navigator.share) {
 
                 navigator.share({
@@ -745,8 +635,6 @@ document.querySelectorAll('.share-btn').forEach(
                 })
 
                 .catch(error => {
-
-                    // User cancelled sharing
                     console.log(
                         'Share cancelled:',
                         error
@@ -755,8 +643,6 @@ document.querySelectorAll('.share-btn').forEach(
                 });
 
             }
-
-            // Fallback
             else {
 
                 navigator.clipboard.writeText(

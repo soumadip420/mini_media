@@ -12,7 +12,7 @@
   * { box-sizing: border-box; }
 
 
-  /* Page filler so navbar can be admired in context */
+  
   .page-content {
     max-width: 900px;
     margin: 60px auto;
@@ -21,7 +21,7 @@
     line-height: 1.6;
   }
 
-  /* ---------- NAVBAR ---------- */
+  
   .navbar {
     display: flex;
     align-items: center;
@@ -35,7 +35,7 @@
     z-index: 1000;
   }
 
-  /* Logo */
+  
   .navbar-logo {
     display: flex;
     align-items: center;
@@ -68,7 +68,7 @@
     object-fit: contain;
   }
 
-  /* Nav links wrapper */
+  
   .navbar-links {
     display: flex;
     align-items: center;
@@ -130,7 +130,7 @@
     transform: translateY(-2px) scale(1.04);
   }
 
-  /* Tooltip label under icon */
+  
   .nav-tooltip {
     position: absolute;
     top: 48px;
@@ -155,7 +155,7 @@
     transform: translateX(-50%) translateY(0);
   }
 
-  /* Right side: logout + profile */
+  
   .navbar-right {
     display: flex;
     align-items: center;
@@ -211,7 +211,7 @@
     border-color: var(--accent);
   }
 
-  /* Hamburger (mobile only) */
+  
   .hamburger {
     display: none;
     flex-direction: column;
@@ -237,7 +237,7 @@
   .hamburger.active span:nth-child(2) { opacity: 0; }
   .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* ---------- RESPONSIVE ---------- */
+  
   @media (max-width: 720px) {
     .hamburger {
       display: flex;
@@ -286,7 +286,7 @@
       font-size: 15px;
     }
 
-    /* tooltip not needed on mobile since label shows inline */
+    
     .nav-tooltip {
       display: none;
     }

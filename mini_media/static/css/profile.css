@@ -31,7 +31,7 @@
     padding: 32px 20px 60px;
   }
 
-  /* ---------- PROFILE HEADER ---------- */
+  
   .profile-header {
     display: flex;
     align-items: center;
@@ -90,7 +90,7 @@
   .edit-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
   .edit-btn:hover { background: var(--accent-soft); transform: translateY(-1px); }
 
-  /* ---------- STATS ---------- */
+  
   .stats-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -125,10 +125,7 @@
   .stat-card .stat-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; }
 
   .stat-icon.posts { background: var(--accent-soft); color: var(--accent); }
-  /*
-  .stat-icon.battles { background: var(--gold-soft); color: var(--gold); }
-  .stat-icon.exp { background: var(--blue-soft); color: var(--blue); }
-  */
+  
 
   .stat-value {
     font-size: 24px;
@@ -144,7 +141,7 @@
     letter-spacing: 0.04em;
   }
 
-  /* ---------- SECTION HEADING ---------- */
+  
   .section-heading {
     display: flex;
     align-items: center;
@@ -158,7 +155,7 @@
     font-weight: 700;
   }
 
-  /* ---------- POSTS GRID (same pattern as all-posts.html) ---------- */
+  
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -242,7 +239,7 @@
   .action-btn.update:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
   .action-btn.delete:hover { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
 
-  /* ---------- EDIT PROFILE MODAL ---------- */
+  
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -274,7 +271,7 @@
   text-align: center;
 }
 
-/* Django's {{ form.as_p }} wraps each field in <p> */
+
 .modal-card form p {
   margin: 0 0 16px;
   display: flex;
@@ -321,7 +318,7 @@
   background: var(--bg);
 }
 
-/* File input (choose profile picture) */
+
 .modal-card form input[type="file"] {
   width: 100%;
   background: var(--bg-soft);
@@ -345,7 +342,7 @@
   cursor: pointer;
 }
 
-/* Django validation errors + help text */
+
 .modal-card form ul.errorlist {
   list-style: none;
   margin: 0 0 8px;
@@ -368,7 +365,7 @@
   margin-top: 6px;
 }
 
-/* Action buttons */
+
 .modal-actions {
   display: flex;
   gap: 10px;
@@ -412,7 +409,7 @@
   background: var(--danger-soft);
 }
 
-/* Post image viewer */
+
 .image-modal {
   display: none;
   position: fixed;
@@ -455,7 +452,7 @@
   .modal-actions { flex-direction: column; }
 }
 
-  /* ---------- RESPONSIVE ---------- */
+  
   @media (max-width: 900px) {
     .posts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }

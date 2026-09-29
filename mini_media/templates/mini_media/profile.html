@@ -6,7 +6,7 @@
 
 <main class="page-wrap">
 
-  <!-- PROFILE HEADER -->
+  
   <section class="profile-header">
     {% if profile.profile_image %}
         <img class="profile-avatar" id="avatarImg"
@@ -38,7 +38,7 @@
     </div>
   </section>
 
-  <!-- EDIT PROFILE MODAL -->
+  
   <div id="edit-profile-form" class="modal-overlay" style="display: none;" onclick="if(event.target===this) hideEditForm()">
     <div class="modal-card">
       <h2 class="modal-title">Edit Profile</h2>
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <!-- STATS -->
+  
   <section class="stats-row">
     <div class="stat-card">
       <div class="stat-icon posts">
@@ -67,26 +67,10 @@
       <div class="stat-label">Posts</div>
     </div>
 
-    <!--
-    <div class="stat-card">
-      <div class="stat-icon battles">
-        <svg viewBox="0 0 24 24"><path d="M6.5 6.5 17.5 17.5"/><path d="M2 22l5-1 12-12-4-4L3 17Z"/><path d="M14 6l4 4"/><path d="M18 3l3 3-3 3-3-3Z"/></svg>
-      </div>
-      <div class="stat-value">27</div>
-      <div class="stat-label">Battles Won</div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-icon exp">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7Z"/></svg>
-      </div>
-      <div class="stat-value">3,420</div>
-      <div class="stat-label">EXP</div>
-    </div>
-    -->
+    
   </section>
 
-  <!-- MY POSTS -->
+  
   <section>
     <div class="section-heading">
       <h2>My Posts</h2>
@@ -141,7 +125,7 @@
 
 </main>
 
-<!-- POST IMAGE MODAL -->
+
 <div class="image-modal" id="imageModal" onclick="if (event.target === this) closeImage()">
   <button type="button" class="close-modal" onclick="closeImage()" aria-label="Close image">&times;</button>
   <img id="fullImage" src="" alt="Full size post image">
@@ -155,8 +139,6 @@ function showEditForm() {
 function hideEditForm() {
     document.getElementById('edit-profile-form').style.display = 'none';
 }
-
-// Close the edit popup with the Escape key
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         hideEditForm();

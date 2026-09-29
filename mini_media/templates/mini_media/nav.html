@@ -1,20 +1,20 @@
 {% load static %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <nav class="navbar">
-  <!-- Logo -->
+  
   <div class="navbar-logo">
     <span class="logo-mark"><img src="{% static 'images/logo.png' %}" alt="PIXI logo"></span>
     <span>PIXI</span>
   </div>
 
-  <!-- Hamburger for mobile -->
+  
   <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <!-- Nav links -->
+  
   <ul class="navbar-links" id="navLinks">
     <li class="nav-item">
       <a href="{% url 'dashboard'%}" class="nav-icon-btn">
@@ -41,7 +41,7 @@
       </li>
   </ul>
 
-  <!-- Right side -->
+  
   <div class="navbar-right">
     <a href="{% url 'LogoutUser' %}" class="logout-btn">
       <svg viewBox="0 0 24 24">

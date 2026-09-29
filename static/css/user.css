@@ -34,7 +34,7 @@
     padding: 0 6px;
   }
 
-  /* ---------- POST CARD ---------- */
+  
   .post {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -47,7 +47,7 @@
 
   .post:hover { border-color: #333b49; }
 
-  /* Header: avatar + name + three dots */
+  
   .post-header {
     display: flex;
     align-items: center;
@@ -110,7 +110,7 @@
   .menu-btn:hover { background: var(--bg-soft); color: var(--ink-white); }
   .menu-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-  /* Three-dot dropdown */
+  
   .menu-wrap { position: relative; }
 
   .menu-dropdown {
@@ -156,7 +156,7 @@
     color: var(--heart);
   }
 
-  /* Image */
+  
   .post-image-box {
     width: 100%;
     aspect-ratio: 4 / 5;
@@ -171,7 +171,7 @@
     display: block;
   }
 
-  /* Action row: download on the left, like/comment/share grouped */
+  
   .post-actions {
     display: flex;
     align-items: center;
@@ -212,7 +212,7 @@
   .comment-btn:hover { color: #6ea8ff; background: rgba(110, 168, 255, 0.14); }
   .share-btn:hover { color: var(--accent); background: var(--accent-soft); }
 
-  /* Likes count + description */
+  
   .post-body {
     padding: 2px 16px 18px;
   }
@@ -234,7 +234,7 @@
     font-weight: 700;
     margin-right: 6px;
   }
-  /* ---------- POST + COMMENT PANEL LAYOUT ---------- */
+  
 .post-wrapper {
   display: flex;
   align-items: flex-start;
@@ -244,10 +244,10 @@
 .post-wrapper .post {
   flex: 1;
   min-width: 0;
-  margin-bottom: 0; /* spacing now handled by .post-wrapper */
+  margin-bottom: 0; 
 }
 
-/* Comment panel: collapsed by default */
+
 .comment-panel {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -356,7 +356,7 @@
   padding: 20px 0;
 }
 
-/* ---------- Desktop: panel opens on the side ---------- */
+
 @media (min-width: 901px) {
   .comment-panel {
     width: 0;
@@ -375,11 +375,11 @@
 
   .comment-list { max-height: 420px; }
 
-  /* feed needs more room once a panel opens */
+  
   .feed { max-width: 760px; }
 }
 
-/* ---------- Mobile/tablet: panel opens below the post ---------- */
+
 @media (max-width: 900px) {
   .post-wrapper { flex-direction: column; }
 
@@ -402,16 +402,16 @@
   .comment-list { max-height: 260px; }
 }
 
-/* ---------- Save vs Download buttons ---------- */
+
 .save-form,
 .like-form {
-  display: contents; /* form shouldn't affect flex layout of engagement-group */
+  display: contents; 
 }
 
 .download-js-btn:hover { color: var(--accent); background: var(--accent-soft); }
 .save-btn:hover { color: var(--accent); background: var(--accent-soft); }
 
-  /* ---------- RESPONSIVE ---------- */
+  
   @media (max-width: 600px) {
     .feed { padding: 20px 0 50px; }
     .post { border-radius: 0; border-left: none; border-right: none; margin-bottom: 14px; }

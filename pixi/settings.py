@@ -13,17 +13,10 @@ from dotenv import load_dotenv
 
 
 
-# --------------------------------------------------
-# BASE DIRECTORY
-# --------------------------------------------------
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env')
 
 
-# --------------------------------------------------
-# SECURITY
-# --------------------------------------------------
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
@@ -43,9 +36,6 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
-# --------------------------------------------------
-# APPLICATIONS
-# --------------------------------------------------
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -55,18 +45,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Cloudinary
+
     'cloudinary',
     'cloudinary_storage',
 
-    # Your application
     'mini_media',
 ]
 
 
-# --------------------------------------------------
-# CLOUDINARY
-# --------------------------------------------------
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
@@ -75,14 +61,9 @@ CLOUDINARY_STORAGE = {
 }
 
 
-# --------------------------------------------------
-# MIDDLEWARE
-# --------------------------------------------------
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
-    # WhiteNoise for static files
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -94,18 +75,12 @@ MIDDLEWARE = [
 ]
 
 
-# --------------------------------------------------
-# URL / WSGI
-# --------------------------------------------------
 
 ROOT_URLCONF = 'pixi.urls'
 
 WSGI_APPLICATION = 'pixi.wsgi.application'
 
 
-# --------------------------------------------------
-# TEMPLATES
-# --------------------------------------------------
 
 TEMPLATES = [
     {
@@ -123,9 +98,6 @@ TEMPLATES = [
 ]
 
 
-# --------------------------------------------------
-# DATABASE
-# --------------------------------------------------
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
@@ -141,9 +113,6 @@ DATABASES = {
 }
 
 
-# --------------------------------------------------
-# PASSWORD VALIDATION
-# --------------------------------------------------
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -165,9 +134,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# --------------------------------------------------
-# INTERNATIONALIZATION
-# --------------------------------------------------
 
 LANGUAGE_CODE = 'en-us'
 
@@ -178,18 +144,12 @@ USE_I18N = True
 USE_TZ = True
 
 
-# --------------------------------------------------
-# STATIC FILES
-# --------------------------------------------------
 
 STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
-# --------------------------------------------------
-# FILE STORAGE
-# --------------------------------------------------
 
 STORAGES = {
     "default": {
@@ -201,16 +161,10 @@ STORAGES = {
 }
 
 
-# --------------------------------------------------
-# DEFAULT PRIMARY KEY
-# --------------------------------------------------
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# --------------------------------------------------
-# LOGIN / LOGOUT
-# --------------------------------------------------
 
 LOGIN_URL = 'LoginPage'
 

@@ -7,7 +7,7 @@
 
 <main class="page-wrap">
 
-  <!-- HEADER + FILTERS -->
+  
   <header class="trending-header">
     <h1 class="trending-title">
       <span class="fire-emoji">🔥</span>
@@ -40,7 +40,7 @@
     </div>
   </header>
 
-  <!-- POSTS GRID -->
+  
   <div class="posts-grid" id="postsGrid">
     {% for p in trending_posts%}
     <div class="post-card">
@@ -84,7 +84,7 @@
         </div>
       </div>
 
-      <!-- COMMENT PANEL: lives here at page load, gets moved into the sidebar on open -->
+      
       <div class="comment-panel" id="comment-panel-{{ p.id }}">
         <div class="comment-panel-inner">
           <form method="POST" action="{% url 'Comment_Post' p.id %}" class="comment-form-panel">
@@ -117,7 +117,7 @@
     {% endfor %}
   </div>
 
-  <!-- GLOBAL COMMENT SIDEBAR (shared by every post) -->
+  
   <div class="comment-sidebar-overlay" id="commentSidebarOverlay" onclick="closeCommentSidebar()"></div>
   <aside class="comment-sidebar" id="commentSidebar">
     <div class="comment-sidebar-header">
@@ -127,11 +127,11 @@
       <h3>Comments</h3>
     </div>
     <div class="comment-sidebar-content" id="commentSidebarContent">
-      <!-- a post's .comment-panel gets moved in here when opened -->
+      
     </div>
   </aside>
 
-  <!-- GLOBAL IMAGE LIGHTBOX (shared by every post) -->
+  
   <div class="image-lightbox-overlay" id="imageLightboxOverlay" onclick="if(event.target===this) closeImageView()">
     <button type="button" class="lightbox-close" aria-label="Close image" onclick="closeImageView()">
       <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>

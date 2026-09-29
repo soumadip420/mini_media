@@ -36,7 +36,7 @@
     padding: 36px 20px 60px;
   }
 
-  /* ---------- HEADER ---------- */
+  
   .trending-header {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -69,7 +69,7 @@
     color: transparent;
   }
 
-  /* Filter bar */
+  
   .filter-bar {
     display: flex;
     align-items: center;
@@ -110,7 +110,7 @@
     border-color: transparent;
   }
 
-  /* Category dropdown */
+  
   .category-dropdown {
     position: relative;
   }
@@ -186,7 +186,7 @@
     width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
   }
 
-  /* ---------- POSTS GRID ---------- */
+  
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -291,7 +291,7 @@
   .stat-item.likes svg { fill: none; stroke: var(--heart); }
   .stat-item.comments { color: var(--blue); }
 
-  /* Like/comment stats are now real buttons */
+  
   button.stat-item {
     background: transparent;
     border: none;
@@ -330,9 +330,9 @@
   .view-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
   .share-btn:hover { color: var(--blue); border-color: var(--blue); background: var(--blue-soft); }
 
-  /* ---------- COMMENT SIDEBAR (shared, slides in from the right) ---------- */
+  
   .comment-panel {
-    display: none; /* hidden while sitting in its home post-card; shown once moved into the sidebar */
+    display: none; 
   }
 
   .comment-sidebar-content .comment-panel {
@@ -489,7 +489,7 @@
     margin: 0;
   }
 
-  /* ---------- IMAGE LIGHTBOX (shared, opened by the View button) ---------- */
+  
   .image-lightbox-overlay {
     position: fixed;
     inset: 0;
@@ -536,7 +536,7 @@
   .lightbox-close:hover { border-color: var(--fire); color: var(--fire); }
   .lightbox-close svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-  /* ---------- RESPONSIVE ---------- */
+  
   @media (max-width: 900px) {
     .posts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }

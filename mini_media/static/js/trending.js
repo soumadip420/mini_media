@@ -1,13 +1,9 @@
-// Filter tabs (Today / This Week / This Month / All)
   document.querySelectorAll('.filter-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      // Hook point: filter posts by tab.dataset.filter when wired to real data
     });
   });
-
-  // Category dropdown
   function toggleCategoryMenu() {
     document.getElementById('categoryDropdown').classList.toggle('open');
   }
@@ -18,7 +14,6 @@
       opt.classList.add('selected');
       document.getElementById('categoryLabel').textContent = opt.textContent.trim();
       document.getElementById('categoryDropdown').classList.remove('open');
-      // Hook point: filter posts by opt.dataset.value when wired to real data
     });
   });
 
@@ -27,8 +22,6 @@
       document.getElementById('categoryDropdown').classList.remove('open');
     }
   });
-
-  // ---------- COMMENT SIDEBAR (shared by every post) ----------
   let currentOpenPanel = null;
 
   function returnPanelHome(panel) {
@@ -49,20 +42,14 @@
     const overlay = document.getElementById('commentSidebarOverlay');
     const content = document.getElementById('commentSidebarContent');
     const toggleBtn = document.querySelector('[aria-controls="comment-panel-' + postId + '"]');
-
-    // clicking the same post's button again while its sidebar is open closes it
     if (currentOpenPanel === panel && sidebar.classList.contains('open')) {
       closeCommentSidebar();
       return;
     }
-
-    // remember this panel's original spot in the page, once
     if (!panel._homeParent) {
       panel._homeParent = panel.parentElement;
       panel._homeNext = panel.nextSibling;
     }
-
-    // if a different post's panel is currently in the sidebar, send it home first
     if (currentOpenPanel && currentOpenPanel !== panel) {
       returnPanelHome(currentOpenPanel);
     }
@@ -94,8 +81,6 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeCommentSidebar();
   });
-
-  // ---------- SHARE BUTTON ----------
   function sharePost(postId, description) {
     const shareUrl = window.location.origin + window.location.pathname + '#post-' + postId;
 
@@ -114,8 +99,6 @@
       alert(shareUrl);
     });
   }
-
-  // ---------- IMAGE LIGHTBOX (View button) ----------
   function openImageView(url) {
     const overlay = document.getElementById('imageLightboxOverlay');
     const img = document.getElementById('lightboxImg');
@@ -130,8 +113,6 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeImageView();
   });
-
-  // ---------- LIKE BUTTON ----------
   document.querySelectorAll('.like-form').forEach(form => {
     const button = form.querySelector('.like-btn');
     if (!button) return;
@@ -167,8 +148,6 @@
       });
     });
   });
-
-  // ---------- COMMENT FORM (submit inside the expandable panel) ----------
   function escapeHtml(str) {
     const div = document.createElement('div');
     div.textContent = str;

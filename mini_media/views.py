@@ -10,7 +10,6 @@ from .models import *
 from .form import *
 from .decorators import *
 
-# Create your views here.
 def RegisterPage(request):
     form=RegisterForm()
     if request.method=='POST':
@@ -18,7 +17,6 @@ def RegisterPage(request):
         if form.is_valid():
             user=form.save(commit=True)
             profile.objects.create(user=user)
-            #username=form.cleaned_data.get('username')
             return redirect('LoginPage')
             
     context={'form':form}
